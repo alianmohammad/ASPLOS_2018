@@ -116,7 +116,8 @@ class ThreadInfo
             return -1;
 
         int32_t pid;
-        CopyOut(tc, &pid, curTaskInfo(thread_info) + offset, sizeof(pid));
+        //CopyOut(tc, &pid, curTaskInfo(thread_info) + offset, sizeof(pid));
+        CopyOut(tc, &pid, thread_info + offset, sizeof(pid));
 
         return pid;
     }
@@ -129,7 +130,8 @@ class ThreadInfo
             return -1;
 
         int32_t tgid;
-        CopyOut(tc, &tgid, curTaskInfo(thread_info) + offset, sizeof(tgid));
+        //CopyOut(tc, &tgid, curTaskInfo(thread_info) + offset, sizeof(tgid));
+        CopyOut(tc, &tgid, thread_info + offset, sizeof(tgid));
 
         return tgid;
     }
@@ -144,7 +146,8 @@ class ThreadInfo
         int64_t data;
         // start_time is actually of type timespec, but if we just
         // grab the first long, we'll get the seconds out of it
-        CopyOut(tc, &data, curTaskInfo(thread_info) + offset, sizeof(data));
+        //CopyOut(tc, &data, curTaskInfo(thread_info) + offset, sizeof(data));
+        CopyOut(tc, &data, thread_info + offset, sizeof(data));
 
         return data;
     }
@@ -162,7 +165,8 @@ class ThreadInfo
             return "FailureIn_curTaskName";
 
         char buffer[size + 1];
-        CopyStringOut(tc, buffer, curTaskInfo(thread_info) + offset, size);
+        //CopyStringOut(tc, buffer, curTaskInfo(thread_info) + offset, size);
+        CopyStringOut(tc, buffer, thread_info + offset, size);
 
         return buffer;
     }
@@ -175,7 +179,8 @@ class ThreadInfo
             return -1;
 
         int32_t mm_ptr;
-        CopyOut(tc, &mm_ptr, curTaskInfo(thread_info) + offset, sizeof(mm_ptr));
+        //CopyOut(tc, &mm_ptr, curTaskInfo(thread_info) + offset, sizeof(mm_ptr));
+        CopyOut(tc, &mm_ptr, thread_info + offset, sizeof(mm_ptr));
 
         return mm_ptr;
     }
