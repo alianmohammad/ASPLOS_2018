@@ -94,7 +94,7 @@ class EtherSwitch(EtherObject):
     output_buffer_size = Param.MemorySize('1MB', "size of output port buffers")
     delay = Param.Latency('0us', "packet transmit delay")
     delay_var = Param.Latency('0ns', "packet transmit delay variability")
-    time_to_live = Param.Latency('10ms', "time to live of MAC address maping")
+    time_to_live = Param.Latency('100s', "time to live of MAC address maping")
 
 class EtherTapBase(EtherObject):
     type = 'EtherTapBase'
